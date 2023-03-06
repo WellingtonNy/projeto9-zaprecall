@@ -12,12 +12,12 @@ export default function Logo() {
 
 const DivLogo = styled.div`
 width:100%;
-height: 20%;
+height: 19%;
 max-height: 153px;
 display: flex;
 justify-content: center;
 align-items: center;
-background-color: blue;
+
 border-top:1px solid #DBDBDB;
 border-right:1px solid #DBDBDB;
 border-left:1px solid #DBDBDB;

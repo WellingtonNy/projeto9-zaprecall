@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Logo from "./Logo"
 import Bot from "./Bot"
+import Mid from "./Mid"
 
 
 export default function App() {
@@ -8,6 +9,7 @@ export default function App() {
  
    <ContainerApp>
     <Logo />
+    <Mid />
     <Bot />
   </ContainerApp>
   
@@ -20,6 +22,6 @@ width: 100%;
 margin: 0 auto;
 max-width: 375px;
 background-color: #FB6B6B;
-height: 667px;
-max-height: 100%;
+height: 100vh;
+max-height: 667px;
 `
