@@ -10,7 +10,7 @@ export default function Mid(props){
    <DivMid>
     {CARDS.map((e,i)=>
     (
-        <Cards data-test="flashcard" setRespondidas={props.setRespondidas} respondidas={props.respondidas}  key={i} elemento={e} indice={i}/>
+        <Cards setRespondidas={props.setRespondidas} respondidas={props.respondidas}  key={i} elemento={e} indice={i}/>
     )
     )}
    </DivMid>

@@ -13,7 +13,7 @@ export default function Cards(props) {
    const [ativo, setAtivo] = useState(false)
 
    return (
-      <>
+      <div data-test="flashcard">
          <DivCard
             ativo={ativo}
             cor={cor}
@@ -44,7 +44,7 @@ export default function Cards(props) {
                <button data-test="zap-btn" onClick={() => (setFinal('assets/icone_certo.png'), setControle(0), setCor('#2FBE34'), setAtivo(true),props.setRespondidas(props.respondidas+1))}>Zap!</button>
             </div>
          </Resposta>
-      </>
+      </div>
    )
 }
 
