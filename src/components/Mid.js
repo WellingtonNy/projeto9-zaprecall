@@ -1,11 +1,11 @@
-import styled from "styled-components"
-import Cards from "./Cards"
+import styled from "styled-components";
+import Cards from "./Cards";
 import CARDS from "../mock";
 
 
 
 export default function Mid(props){
-    
+
     return(
    <DivMid>
     {CARDS.map((e,i)=>
@@ -14,8 +14,7 @@ export default function Mid(props){
     )
     )}
    </DivMid>
-
-    )
+    );
 }
 
 const DivMid = styled.div`
@@ -28,4 +27,4 @@ gap:25px;
 padding-top: 10px;
 padding-bottom: 15px;
 overflow-y: auto;
-`
+`;

@@ -21,13 +21,13 @@ align-items: center;
 border-top:1px solid #DBDBDB;
 border-right:1px solid #DBDBDB;
 border-left:1px solid #DBDBDB;
-`
+`;
 
 
 const ImgLogo = styled.img`
 width: 52px;
 height: 60px;
-`
+`;
 
 
 const PLogo = styled.p`
@@ -39,5 +39,5 @@ letter-spacing: -0.012em;
 text-align: center;
 color: #FFFFFF;
 padding-left: 25px;
-`
+`;
 

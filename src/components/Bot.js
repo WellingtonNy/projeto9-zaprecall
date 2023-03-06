@@ -7,7 +7,6 @@ export default function Bot(props) {
       <p>{props.respondidas}/{CARDS.length} CONCLUÍDOS</p>
        </DivBot>
     );
-    
 }
 
 const DivBot= styled.div`
@@ -27,4 +26,4 @@ line-height: 22px;
 letter-spacing: 0em;
 text-align: left;
 color: #333333;}
-`
+`;

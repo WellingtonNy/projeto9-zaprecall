@@ -5,12 +5,12 @@ import styled from "styled-components";
 
 export default function Cards(props) {
 
-   const { question, answer } = props.elemento
-   const indice = props.indice
-   const [controle, setControle] = useState(0)
-   const [final, setFinal] = useState('assets/seta_play.png')
-   const [cor, setCor] = useState('#333333')
-   const [ativo, setAtivo] = useState(false)
+   const { question, answer } = props.elemento;
+   const indice = props.indice;
+   const [controle, setControle] = useState(0);
+   const [final, setFinal] = useState('assets/seta_play.png');
+   const [cor, setCor] = useState('#333333');
+   const [ativo, setAtivo] = useState(false);
 
    return (
       <div data-test="flashcard">
@@ -39,13 +39,37 @@ export default function Cards(props) {
          <Resposta setAtivo={setAtivo} setCor={setCor} setFinal={setFinal} controle={controle} setControle={setControle} >
             <p data-test="flashcard-text">{answer}</p>
             <div>
-               <button data-test="no-btn" onClick={() => (setFinal('assets/icone_erro.png'), setControle(0), setCor('#FF3030'), setAtivo(true),props.setRespondidas(props.respondidas+1))}>Não lembrei</button>
-               <button data-test="partial-btn" onClick={() => (setFinal('assets/icone_quase.png'), setControle(0), setCor('#FF922E'), setAtivo(true), props.setRespondidas(props.respondidas+1))}>Quase não lembrei</button>
-               <button data-test="zap-btn" onClick={() => (setFinal('assets/icone_certo.png'), setControle(0), setCor('#2FBE34'), setAtivo(true),props.setRespondidas(props.respondidas+1))}>Zap!</button>
+
+               <button data-test="no-btn"
+                  onClick={() => (setFinal('assets/icone_erro.png'),
+                     setControle(0),
+                     setCor('#FF3030'),
+                     setAtivo(true),
+                     props.setRespondidas(props.respondidas + 1))}>
+                  Não lembrei
+               </button>
+
+               <button data-test="partial-btn"
+                  onClick={() => (setFinal('assets/icone_quase.png'),
+                     setControle(0),
+                     setCor('#FF922E'),
+                     setAtivo(true),
+                     props.setRespondidas(props.respondidas + 1))}>
+                  Quase não lembrei
+               </button>
+
+               <button data-test="zap-btn"
+                  onClick={() => (setFinal('assets/icone_certo.png'),
+                     setControle(0),
+                     setCor('#2FBE34'),
+                     setAtivo(true), props.setRespondidas(props.respondidas + 1))}>
+                  Zap!
+               </button>
+
             </div>
          </Resposta>
       </div>
-   )
+   );
 }
 
 
@@ -104,7 +128,7 @@ div :nth-child(2){
 div :nth-child(3){
    background-color: #2FBE34;
 }  
-`
+`;
 
 
 const Pergunta = styled.div`
@@ -136,7 +160,7 @@ flex-direction: row-reverse;
 padding-right: 5px;
 padding-bottom: 3px;
 }
-`
+`;
 
 
 const DivCard = styled.div`
@@ -177,4 +201,4 @@ div{
    display: flex;
    justify-content: space-between;
 }
-`
+`;
