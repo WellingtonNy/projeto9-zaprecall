@@ -1,15 +1,50 @@
 
+import { useState } from "react";
 import styled from "styled-components";
 
 
-export default function Cards({elemento}){
-   const {question,answer} = elemento
+export default function Cards(props){
+
+   const {question,answer} = props.elemento
+   const indice = props.indice
+   const [controle,setControle]=useState(0)
+   const [final,setFinal]=useState('assets/seta_play.png')
+   const [cor,setCor]=useState('#333333')
+   const [ativo,setAtivo]=useState(false)
 
 return(
-<DivCard > 
-   <p>Pergunta {1}</p>
-   <img src="assets/seta_play.png"></img>
+   <>
+<DivCard 
+ativo={ativo}
+ cor={cor}
+  final={final}
+   controle={controle}
+    setControle={setControle}>
+
+   <div>
+   <p>{controle}Pergunta {indice+1}</p>
+   <button disabled={ativo} onClick={()=>setControle(1)}>
+      <img src={final}></img>
+   </button>
+   </div>
+
 </DivCard>
+
+<Pergunta controle={controle} setControle={setControle}>
+<p>{question}</p>
+<div>
+<button onClick={()=>setControle(2)}><img src="assets/seta_virar.png"></img></button>
+</div>
+</Pergunta>
+<Resposta setAtivo={setAtivo} setCor={setCor} setFinal={setFinal} controle={controle} setControle={setControle} >
+   <p>{answer}</p>
+   <div>
+      <button onClick={()=> (setFinal('assets/icone_erro.png'),setControle(0),setCor('#FF3030'),setAtivo(true)) }>Não lembrei</button>
+      <button onClick={()=> (setFinal('assets/icone_quase.png'),setControle(0),setCor('#FF922E'),setAtivo(true)) }>Quase não lembrei</button>
+      <button onClick={()=> (setFinal('assets/icone_certo.png'),setControle(0),setCor('#2FBE34'),setAtivo(true) )}>Zap!</button>
+   </div>
+</Resposta>
+</>
 )
 }
 
@@ -17,10 +52,107 @@ return(
 
 
 
+const Resposta=styled.div`
+width: 300px;
+
+max-height: 100%;
+background-color: #FFFFD4;
+display: ${(props) => (props.controle === 2?'flex':'none')};
+flex-direction: column;
+justify-content: space-between;
+
+p{
+
+padding-left: 15px;
+padding-right: 15px;
+padding-top: 15px;
+font-family: 'Recursive';
+font-size: 18px;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+ 
+div{
+   display: flex;
+   justify-content: space-between;
+   padding-bottom: 10px;
+   padding-right: 15px;
+   padding-left: 15px;
+   padding-top: 15px;
+}
+
+div button {
+width: 85px;
+height: 37px;
+font-family: 'Recursive';
+font-size: 12px;
+font-weight: 400;
+line-height: 14px;
+letter-spacing: 0em;
+text-align: center;
+color:#FFFFFF;
+border:none;
+border-radius: 5px;
+}
+
+div :nth-child(1){
+   background-color: #FF3030;
+}
+
+div :nth-child(2){
+   background-color: #FF922E;
+}
+
+div :nth-child(3){
+   background-color: #2FBE34;
+}  
+
+
+
+`
+
+
+const Pergunta= styled.div`
+width: 300px;
+min-height: 131px;
+background-color: #FFFFD4;
+display: ${(props) => (props.controle===1?'flex':'none')};
+flex-direction: column;
+justify-content: space-between;
+
+p{
+   
+font-family: 'Recursive';
+font-size: 18px;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: 0em;
+text-align: left;
+padding: 15px;
+}
+
+button{
+border: none;
+background-color: #FFFFD4;
+}
+
+div{
+display: flex;
+flex-direction: row-reverse;
+padding-right: 5px;
+padding-bottom: 3px;
+}
+`
+
+
 const DivCard = styled.div`
 width: 300px;
 min-height: 65px;
-display: flex;
+
+display: ${(props) => (props.controle===0?'flex':'none')};
 justify-content: space-between;
 align-items: center;
 padding-left: 15px;
@@ -29,6 +161,10 @@ border-radius: 5px;
 box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
 background-color:#FFFFFF;
 
+button{
+   border:none;
+   background-color: #FFFFFF;
+}
 
 img {
 width: 20px;
@@ -42,11 +178,13 @@ font-weight: 700;
 line-height: 19px;
 letter-spacing: 0em;
 text-align: left;
-color: #333333;
+color:${(props)=>(props.cor)};
 
-div{
-   display: none;
 }
 
+div{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
 }
 `
