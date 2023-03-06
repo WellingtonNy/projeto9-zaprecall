@@ -24,7 +24,7 @@ export default function Cards(props) {
             <div>
                <p data-test="flashcard-text">Pergunta {indice + 1}</p>
                <button data-test="play-btn" disabled={ativo} onClick={() => setControle(1)}>
-                  <img src={final}></img>
+                  <img data-test="partial-icon no-icon zap-icon" src={final}></img>
                </button>
             </div>
 
