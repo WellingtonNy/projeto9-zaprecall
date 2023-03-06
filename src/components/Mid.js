@@ -1,16 +1,16 @@
 import styled from "styled-components"
 import Cards from "./Cards"
 import CARDS from "../mock";
-import { useState } from "react";
 
 
-export default function Mid(){
+
+export default function Mid(props){
     
     return(
    <DivMid>
     {CARDS.map((e,i)=>
     (
-        <Cards  key={i} elemento={e} indice={i}/>
+        <Cards setRespondidas={props.setRespondidas} respondidas={props.respondidas}  key={i} elemento={e} indice={i}/>
     )
     )}
    </DivMid>

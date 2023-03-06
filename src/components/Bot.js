@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import CARDS from "../mock";
 
-export default function Bot() {
+export default function Bot(props) {
     return(
        <DivBot>
-      <PBot>0/4 CONCLUÍDOS</PBot>
+      <PBot>{props.respondidas}/{CARDS.length} CONCLUÍDOS</PBot>
        </DivBot>
     );
     

@@ -39,9 +39,9 @@ export default function Cards(props) {
          <Resposta setAtivo={setAtivo} setCor={setCor} setFinal={setFinal} controle={controle} setControle={setControle} >
             <p>{answer}</p>
             <div>
-               <button onClick={() => (setFinal('assets/icone_erro.png'), setControle(0), setCor('#FF3030'), setAtivo(true))}>Não lembrei</button>
-               <button onClick={() => (setFinal('assets/icone_quase.png'), setControle(0), setCor('#FF922E'), setAtivo(true))}>Quase não lembrei</button>
-               <button onClick={() => (setFinal('assets/icone_certo.png'), setControle(0), setCor('#2FBE34'), setAtivo(true))}>Zap!</button>
+               <button onClick={() => (setFinal('assets/icone_erro.png'), setControle(0), setCor('#FF3030'), setAtivo(true),props.setRespondidas(props.respondidas+1))}>Não lembrei</button>
+               <button onClick={() => (setFinal('assets/icone_quase.png'), setControle(0), setCor('#FF922E'), setAtivo(true), props.setRespondidas(props.respondidas+1))}>Quase não lembrei</button>
+               <button onClick={() => (setFinal('assets/icone_certo.png'), setControle(0), setCor('#2FBE34'), setAtivo(true),props.setRespondidas(props.respondidas+1))}>Zap!</button>
             </div>
          </Resposta>
       </>
