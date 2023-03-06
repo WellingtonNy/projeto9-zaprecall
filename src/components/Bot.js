@@ -3,8 +3,8 @@ import CARDS from "../mock";
 
 export default function Bot(props) {
     return(
-       <DivBot>
-      <PBot>{props.respondidas}/{CARDS.length} CONCLUÍDOS</PBot>
+       <DivBot data-test="footer">
+      <p>{props.respondidas}/{CARDS.length} CONCLUÍDOS</p>
        </DivBot>
     );
     
@@ -18,13 +18,13 @@ display: flex;
 justify-content: center;
 align-items: center;
 box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
-`
-const PBot= styled.p`
+
+p{
 font-family: Recursive;
 font-size: 18px;
 font-weight: 400;
 line-height: 22px;
 letter-spacing: 0em;
 text-align: left;
-color: #333333;
+color: #333333;}
 `
