@@ -1,11 +1,16 @@
 import styled from "styled-components"
 import Cards from "./Cards"
+import CARDS from "../mock";
 
 
 export default function Mid(){
     return(
    <DivMid>
-   <Cards />
+    {CARDS.map((e)=>
+    (
+        <Cards elemento={e}/>
+    )
+    )}
    </DivMid>
 
     )
@@ -19,4 +24,6 @@ height: 70.5%;
 flex-direction: column;
 gap:25px;
 padding-top: 10px;
+padding-bottom: 15px;
+overflow-y: auto;
 `
